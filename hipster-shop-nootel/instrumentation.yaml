@@ -3,8 +3,6 @@ kind: Instrumentation
 metadata:
   name: non-otel-instrumentation
 spec:
-  exporter:
-    endpoint: http://otel-collector.default.svc.cluster.local:4317
   resource:
     addK8sUIDAttributes: true
   propagators:

@@ -1,7 +1,7 @@
 apiVersion: opentelemetry.io/v1alpha1
 kind: OpenTelemetryCollector
 metadata:
-  name: otel
+  name: oteld
 spec:
   mode: daemonset
   hostNetwork: true
