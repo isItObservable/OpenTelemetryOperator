@@ -15,7 +15,7 @@ spec:
         service: emailservice
         product: hipster-shop
       annotations:
-        instrumentation.opentelemetry.io/inject-python: "true"
+        instrumentation.opentelemetry.io/inject-python: "non-otel-python-instrumentation"
         sidecar.opentelemetry.io/inject: "otel-sidecar"
     spec:
       terminationGracePeriodSeconds: 5
@@ -144,7 +144,7 @@ spec:
         service: recommendationservice
         product: hipster-shop
       annotations:
-        instrumentation.opentelemetry.io/inject-python: "true"
+        instrumentation.opentelemetry.io/inject-python: "non-otel-python-instrumentation"
         sidecar.opentelemetry.io/inject: "otel-sidecar"
     spec:
       terminationGracePeriodSeconds: 5
@@ -215,7 +215,7 @@ spec:
           args: ["-u", "50", "-d", "24h"]
           env:
             - name: FRONTEND_ADDR
-              value: "onlineboutique-nootel.34.141.7.13.nip.io"
+              value: "onlineboutique-nootel.IP_TO_REPLACE.nip.io"
             - name: K6_PROMETHEUS_REMOTE_URL
               value: http://prometheus-kube-prometheus-prometheus.default.svc.cluster.local:9090/api/v1/write
             - name: OTLP_SERVICE_ADDR
@@ -320,7 +320,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host :  "onlineboutique-nootel.34.141.7.13.nip.io"
+    - host :  "onlineboutique-nootel.IP_TO_REPLACE.nip.io"
       http:
         paths:
           - pathType: ImplementationSpecific
@@ -348,7 +348,7 @@ spec:
         service: paymentservice
         product: hipster-shop
       annotations:
-        instrumentation.opentelemetry.io/inject-nodejs: "true"
+        instrumentation.opentelemetry.io/inject-nodejs: "non-otel-instrumentation"
         sidecar.opentelemetry.io/inject: "otel-sidecar"
     spec:
       terminationGracePeriodSeconds: 5
@@ -541,7 +541,7 @@ spec:
         service: currencyservice
         product: hipster-shop
       annotations:
-        instrumentation.opentelemetry.io/inject-nodejs: "true"
+        instrumentation.opentelemetry.io/inject-nodejs: "non-otel-instrumentation"
         sidecar.opentelemetry.io/inject: "otel-sidecar"
     spec:
       terminationGracePeriodSeconds: 5
@@ -742,7 +742,7 @@ spec:
         service: adservice
         product: hipster-shop
       annotations:
-        instrumentation.opentelemetry.io/inject-java: "true"
+        instrumentation.opentelemetry.io/inject-java: "non-otel-instrumentation"
         sidecar.opentelemetry.io/inject: "otel-sidecar"
     spec:
       terminationGracePeriodSeconds: 5

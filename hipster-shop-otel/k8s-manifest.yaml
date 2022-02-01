@@ -12,10 +12,6 @@ spec:
       labels:
         app: emailservice
         product: hipster-shop
-      annotations:
-        metrics.dynatrace.com/path: /stats/prometheus
-        metrics.dynatrace.com/port: "15020"
-        metrics.dynatrace.com/scrape: "true"
     spec:
       terminationGracePeriodSeconds: 5
       containers:
@@ -26,7 +22,7 @@ spec:
         - containerPort: 8080
         env:
         - name: OTLP_HOST
-          value: "otel-collector.default.svc.cluster.local"
+          value: "oteld-collector.default.svc.cluster.local"
         - name: OTLP_PORT
           value: "4317"
         - name: PORT
@@ -78,10 +74,6 @@ spec:
       labels:
         app: checkoutservice
         product: hipster-shop
-      annotations:
-        metrics.dynatrace.com/path: /stats/prometheus
-        metrics.dynatrace.com/port: "15020"
-        metrics.dynatrace.com/scrape: "true"
     spec:
       containers:
         - name: server
@@ -97,7 +89,7 @@ spec:
               command: ["/bin/grpc_health_probe", "-addr=:5050"]
           env:
           - name: OTLP_SERVICE_ADDR
-            value: "otel-collector.default.svc.cluster.local"
+            value: "oteld-collector.default.svc.cluster.local"
           - name: OTLP_SERVICE_PORT
             value: "4317"
           - name: PORT
@@ -157,10 +149,6 @@ spec:
       labels:
         app: recommendationservice
         product: hipster-shop
-      annotations:
-        metrics.dynatrace.com/path: /stats/prometheus
-        metrics.dynatrace.com/port: "15020"
-        metrics.dynatrace.com/scrape: "true"
     spec:
       terminationGracePeriodSeconds: 5
  # imagePullsecrets required for perform2019????      
@@ -182,7 +170,7 @@ spec:
             command: ["/bin/grpc_health_probe", "-addr=:8080"]
         env:
         - name: OTLP_HOST
-          value: "otel-collector.default.svc.cluster.local"
+          value: "oteld-collector.default.svc.cluster.local"
         - name: OTLP_PORT
           value: "4317"
         - name: PORT
@@ -232,9 +220,6 @@ spec:
         product: hipster-shop
       annotations:
         sidecar.istio.io/rewriteAppHTTPProbers: "true"
-        metrics.dynatrace.com/path: /stats/prometheus
-        metrics.dynatrace.com/port: "15020"
-        metrics.dynatrace.com/scrape: "true"
     spec:
       containers:
         - name: server
@@ -262,7 +247,7 @@ spec:
                 value: "shop_session-id=x-liveness-probe"
           env:
           - name: OTLP_SERVICE_ADDR
-            value: "otel-collector.default.svc.cluster.local"
+            value: "oteld-collector.default.svc.cluster.local"
           - name: OTLP_SERVICE_PORT
             value: "4317"
           - name: PORT
@@ -342,10 +327,6 @@ spec:
       labels:
         app: paymentservice
         product: hipster-shop
-      annotations:
-        metrics.dynatrace.com/path: /stats/prometheus
-        metrics.dynatrace.com/port: "15020"
-        metrics.dynatrace.com/scrape: "true"
     spec:
       terminationGracePeriodSeconds: 5
       containers:
@@ -356,7 +337,7 @@ spec:
         - containerPort: 50051
         env:
         - name: OTLP_HOST
-          value: "otel-collector.default.svc.cluster.local"
+          value: "oteld-collector.default.svc.cluster.local"
         - name: OTLP_PORT
           value: "4317"
         - name: PORT
@@ -402,10 +383,6 @@ spec:
       labels:
         app: productcatalogservice
         product: hipster-shop
-      annotations:
-        metrics.dynatrace.com/path: /stats/prometheus
-        metrics.dynatrace.com/port: "15020"
-        metrics.dynatrace.com/scrape: "true"
     spec:
       terminationGracePeriodSeconds: 5
       containers:
@@ -417,7 +394,7 @@ spec:
         - containerPort: 3550
         env:
         - name: OTLP_SERVICE_ADDR
-          value: "otel-collector.default.svc.cluster.local"
+          value: "oteld-collector.default.svc.cluster.local"
         - name: OTLP_SERVICE_PORT
           value: "4317"
         - name: PORT
@@ -471,10 +448,6 @@ spec:
       labels:
         app: cartservice
         product: hipster-shop
-      annotations:
-        metrics.dynatrace.com/path: /stats/prometheus
-        metrics.dynatrace.com/port: "15020"
-        metrics.dynatrace.com/scrape: "true"
     spec:
       terminationGracePeriodSeconds: 5
       containers:
@@ -487,7 +460,7 @@ spec:
         - name: OTLP_PORT
           value: "4317"
         - name: OTLP_HOST
-          value: "otel-collector.default.svc.cluster.local"
+          value: "oteld-collector.default.svc.cluster.local"
         - name: OTLP-SERVICENAME
           value: "cartservice"
         - name: REDIS_ADDR
@@ -557,7 +530,7 @@ spec:
             - name: K6_PROMETHEUS_REMOTE_URL
               value: http://prometheus-kube-prometheus-prometheus.default.svc.cluster.local:9090/api/v1/write
             - name: OTLP_SERVICE_ADDR
-              value: "otel-collector.default.svc.cluster.local:4317"
+              value: "oteld-collector.default.svc.cluster.local:4317"
           resources:
             requests:
               cpu: 300m
@@ -580,10 +553,6 @@ spec:
       labels:
         app: currencyservice
         product: hipster-shop
-      annotations:
-        metrics.dynatrace.com/path: /stats/prometheus
-        metrics.dynatrace.com/port: "15020"
-        metrics.dynatrace.com/scrape: "true"
     spec:
       terminationGracePeriodSeconds: 5
       containers:
@@ -595,7 +564,7 @@ spec:
           containerPort: 7000
         env:
         - name: OTLP_HOST
-          value: "otel-collector.default.svc.cluster.local"
+          value: "oteld-collector.default.svc.cluster.local"
         - name: OTLP_PORT
           value: "4317"
         - name: PORT
@@ -647,10 +616,6 @@ spec:
       labels:
         app: shippingservice
         product: hipster-shop
-      annotations:
-        metrics.dynatrace.com/path: /stats/prometheus
-        metrics.dynatrace.com/port: "15020"
-        metrics.dynatrace.com/scrape: "true"
     spec:
       containers:
       - name: server
@@ -660,7 +625,7 @@ spec:
         - containerPort: 50051
         env:
         - name: OTLP_SERVICE_ADDR
-          value: "otel-collector.default.svc.cluster.local"
+          value: "oteld-collector.default.svc.cluster.local"
         - name: OTLP_SERVICE_PORT
           value: "4317"
         - name: PORT
@@ -718,8 +683,8 @@ spec:
       annotations: # here we annotate the deployment to be scraped by dynatrace
         prometheus.io/port: '9121'
         prometheus.io/scrape: 'true'
-        metrics.dynatrace.com/path: /stats/prometheus
-        metrics.dynatrace.com/port: "15020"
+        metrics.dynatrace.com/path: /metrics
+        metrics.dynatrace.com/port: "9121"
         metrics.dynatrace.com/scrape: "true"
     spec:
       containers:
@@ -776,10 +741,6 @@ spec:
       labels:
         app: adservice
         product: hipster-shop
-      annotations:
-        metrics.dynatrace.com/path: /stats/prometheus
-        metrics.dynatrace.com/port: "15020"
-        metrics.dynatrace.com/scrape: "true"
     spec:
       terminationGracePeriodSeconds: 5
       containers:
@@ -790,7 +751,7 @@ spec:
         - containerPort: 9555
         env:
         - name: OTEL_EXPORTER_OTLP_ENDPOINT
-          value: "http://otel-collector.default.svc.cluster.local:4317"
+          value: "http://oteld-collector.default.svc.cluster.local:4317"
         - name: OTEL_TRACES_EXPORTER
           value: "otlp"
         - name: PORT

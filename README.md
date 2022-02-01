@@ -244,6 +244,7 @@ kubectl apply -f kubernetes-manifests/k8s-manifest.yaml -n hipster-shop-otel
 kubectl create ns hipster-shop-nonotel
 kubectl apply -f kubernetes-manifests/openTelemetry-manifest_sidecar.yaml-n hipster-shop-nonotel
 kubectl apply -f hipster-shop-nootel/instrumentation.yaml -n hipster-shop-nonotel
+kubectl apply -f hipster-shop-nootel/instrumentation_python.yaml -n hipster-shop-nonotel
 kubectl apply -f kubernetes-manifests/k8s-manifest.yaml -n hipster-shop-nonotel
 ```
 ### 8. Consume the generated traces 
