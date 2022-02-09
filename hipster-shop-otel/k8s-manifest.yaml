@@ -520,7 +520,7 @@ spec:
       terminationGracePeriodSeconds: 5
       restartPolicy: Always
       containers:
-        - name: k6load
+        - name: k6loadotel
           image: hrexed/k6-prometheus-otlp:0.1
           imagePullPolicy: Always
           args: ["-u", "30", "-d", "24h"]
