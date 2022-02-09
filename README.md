@@ -6,7 +6,7 @@
 
 This tutorial will be based on the popular Demo platform provided by Google : The Online Boutique
 <p align="center">
-<img src="src/frontend/static/icons/Hipster_HeroLogoCyan.svg" width="300" alt="Online Boutique" />
+<img src="image/Hipster_HeroLogoCyan.svg" width="300" alt="Online Boutique" />
 </p>
 
 This tutorial will deploy 2 onlinebouque :
